@@ -36,14 +36,14 @@ export default {
 	},
 
 	computed: {
-		drawTitle: () => {
+		drawTitle () {
 			if (this.room.tableCards) {
 				if (this.room.tableCards.length < 3) return 'Flop'
 				if (this.room.tableCards.length === 3) return 'Turn'
 				if (this.room.tableCards.length === 4) return 'River'
-			} else {
-				return false
 			}
+
+			return ''
 		}
 	},
 
