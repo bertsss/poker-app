@@ -17,8 +17,8 @@ export default new Vuex.Store({
 	actions: {
 	},
 
-	getters:{
-		name (state){
+	getters: {
+		name (state) {
 			return state.name
 		}
 	}

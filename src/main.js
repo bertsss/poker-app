@@ -13,20 +13,19 @@ Vue.use(firestorePlugin)
 Vue.use(VueAxios, axios)
 
 firebase.initializeApp({
-	apiKey: "AIzaSyDBHKWm48SpfWOFE7fgv4PrjCpozR29La0",
-	authDomain: "poker-app-88b1b.firebaseapp.com",
-	databaseURL: "https://poker-app-88b1b.firebaseio.com",
-	projectId: "poker-app-88b1b",
-	storageBucket: "poker-app-88b1b.appspot.com",
-	messagingSenderId: "941591037213",
-	appId: "1:941591037213:web:5a20a6f25c96b2c3"
+	apiKey: 'AIzaSyDBHKWm48SpfWOFE7fgv4PrjCpozR29La0',
+	authDomain: 'poker-app-88b1b.firebaseapp.com',
+	databaseURL: 'https://poker-app-88b1b.firebaseio.com',
+	projectId: 'poker-app-88b1b',
+	storageBucket: 'poker-app-88b1b.appspot.com',
+	messagingSenderId: '941591037213',
+	appId: '1:941591037213:web:5a20a6f25c96b2c3'
 })
 export const db = firebase.firestore()
 
-
 Vue.config.productionTip = false
 
-new Vue({
+new Vue({ // eslint-disable-line no-new
 	el: '#app',
 	store: store,
 	router,

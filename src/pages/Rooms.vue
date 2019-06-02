@@ -10,34 +10,33 @@
 import { db } from '@/main'
 
 export default {
-    data () {
-        return {
-            rooms: []
-        }
-    },
+	data () {
+		return {
+			rooms: []
+		}
+	},
 
-    firestore () {
-        return {
-            rooms: db.collection('rooms')
-        }
-    },
+	firestore () {
+		return {
+			rooms: db.collection('rooms')
+		}
+	},
 
-    methods: {
-        enterRoom (id) {
-            this.addPlayer(id)
-            this.$router.push(`/room/${id}`)    
-        },
+	methods: {
+		enterRoom (id) {
+			this.addPlayer(id)
+			this.$router.push(`/room/${id}`)
+		},
 
-        addPlayer (id) {
-            db.collection('rooms').doc(id).collection('players').add({
-                name: this.$store.getters.name,
-                cards: []
-            })
-        }
-    }
+		addPlayer (id) {
+			db.collection('rooms').doc(id).collection('players').add({
+				name: this.$store.getters.name,
+				cards: []
+			})
+		}
+	}
 }
 </script>
-
 
 <style lang="scss" scoped>
 .rooms-container {

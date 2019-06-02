@@ -9,21 +9,19 @@
 </template>
 
 <script>
-import { db } from '@/main'
-
 export default {
-    data () {
-        return {
-            name: ''
-        }
-    },
+	data () {
+		return {
+			name: ''
+		}
+	},
 
-    methods: {
-        async enterRoom () {
-            await this.$store.commit('setName', this.name)
-            // this.addUser()
-            this.$router.push('/rooms')
-        }
-    }
+	methods: {
+		async enterRoom () {
+			await this.$store.commit('setName', this.name)
+			// this.addUser()
+			this.$router.push('/rooms')
+		}
+	}
 }
 </script>
