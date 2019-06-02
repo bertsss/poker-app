@@ -9,8 +9,12 @@
         <div class="player" v-for="(player, index) in players" :key="index">
             <p>{{ player.name }}</p>
             <button @click="leaveRoom(player.id)">Leave Room</button>
-            <div class="my-card" v-if="player.cards">
+            <div class="my-card" v-if="player.cards.length > 0 && player.name === name">
                 <img :src="item.image" v-for="(item, index) in player.cards" :key="index">
+            </div>
+            <div class="my-card" v-if="player.cards.length > 0 && player.name !== name">
+                <img src="http://chetart.com/blog/wp-content/uploads/2012/05/playing-card-back.jpg">
+                <img src="http://chetart.com/blog/wp-content/uploads/2012/05/playing-card-back.jpg">
             </div>
         </div>
 
@@ -44,6 +48,10 @@ export default {
 			}
 
 			return ''
+		},
+
+		name () {
+			return this.$store.getters.name
 		}
 	},
 
@@ -55,6 +63,14 @@ export default {
 	},
 
 	async mounted () {
+		let vue = this
+		window.onbeforeunload = function () {
+			if (vue.$route.name === 'room') {
+				return 'You will be removed in a room!'
+			}
+		}
+
+		if (this.name === '') this.$router.push('/')
 		// await this.shuffle()
 		// this.draw()
 	},
